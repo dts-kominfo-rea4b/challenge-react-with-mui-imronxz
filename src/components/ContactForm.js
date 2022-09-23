@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 
-const ContactForm = ({ fnAddContactForm }) => {
+const ContactForm = ({ fnaddContact }) => {
   // Form berisi name, phone, email, dan photo url
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -21,21 +21,21 @@ const ContactForm = ({ fnAddContactForm }) => {
       email,
       photo,
     };
-    fnAddContactForm(newContact);
+    fnaddContact(newContact);
     setName('');
     setPhone('');
     setEmail('');
     setPhoto('');
   };
 
-  const render_inputField = (placeholder, type, value, stateName) => (
+  const render_inputField = (placeholderInput, typeInput, valueInput, stateNameInput) => (
     <TextField
       size="small"
-      label={placeholder}
-      type={type}
-      value={value}
-      onChange={(e) => onChangeInput(e, stateName)}
-      variant="standard"
+      label={placeholderInput}
+      type={typeInput}
+      value={valueInput}
+      onChange={(e) => onChangeInput(e, stateNameInput)}
+      variant="filled"
     />
   );
 
@@ -52,11 +52,8 @@ const ContactForm = ({ fnAddContactForm }) => {
       >
         {render_inputField('Name', 'text', name, setName)}
         {render_inputField('Phone', 'Number', phone, setPhone)}
-        <br />
         {render_inputField('Email', 'email', email, setEmail)}
-        <br />
-        {render_inputField('Photo URL', 'text', photo, setPhoto)}
-        <br />
+        {render_inputField('Photo', 'url', photo, setPhoto)}
         <Button color="secondary" type="submit" variant="contained">
           Add New Contact
         </Button>

@@ -13,9 +13,9 @@ import {
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
-  return (
-    <div>
-      <div>
+  if (Array.isArray(data)) {
+    return (
+      <>
         <List sx={{ width: '100%', bgcolor: 'background.paper' }} aria-label="contacts">
           {data.map((value, key) => {
             return (
@@ -34,7 +34,8 @@ const Contact = ({ data }) => {
                           variant="body2"
                           color="text.primary"
                         >
-                          {value.phone}<br></br>
+                          {value.phone}
+                          <br></br>
                           {value.email}
                         </Typography>
                       </>
@@ -45,9 +46,16 @@ const Contact = ({ data }) => {
             );
           })}
         </List>
-      </div>
-    </div>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        Monica 087577588432 devi@email.com
+        <img src="http://placekitten.com/600" alt="Logo" />
+      </>
+    );
+  }
 };
 
 export default Contact;
