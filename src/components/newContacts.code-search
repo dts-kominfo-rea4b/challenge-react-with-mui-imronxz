@@ -1,0 +1,19 @@
+# Query: newContacts
+# ContextLines: 1
+
+4 results - 2 files
+
+src/App.js:
+  13  
+  14:   const addContactForm = (newContact) => {
+  15:     setContacts([...contacts, newContact]);
+  16    };
+
+src/components/ContactForm.js:
+  18      e.preventDefault();
+  19:     const newContact = {
+  20        name: name,
+
+  24      };
+  25:     fnAddContactForm(newContact);
+  26      setName('');
