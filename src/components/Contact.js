@@ -17,7 +17,6 @@ const Contact = ({ data }) => {
     <>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }} aria-label="contacts">
         {data.map((contact, key) => {
-          //   console.log(contact);
           return (
             <ListItem key={key}>
               <ListItemButton>
