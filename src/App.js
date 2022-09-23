@@ -1,14 +1,9 @@
 import './App.css';
-import Header from './components/Header';
-import Contact from './components/Contact';
-import ContactForm from './components/ContactForm';
+import { Header, Contact, ContactForm } from './components';
 import React, { useState } from 'react';
-//MUI 
-import Container from '@mui/material/Container';
+//MUI
+import { Container, Box, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from './data/contacts.json';
@@ -22,15 +17,14 @@ const App = () => {
   const [contacts, setContacts] = useState(contactsJSON);
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
   const addContact = (newContact) => {
-
     setContacts([...contacts, newContact]);
-  }
+  };
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F5EFE6',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    margin:'0.5em',
+    margin: '0.5em',
     color: theme.palette.text.secondary,
   }));
 
@@ -43,21 +37,19 @@ const App = () => {
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <Item>
-                <ContactForm fnaddContact={addContact} />
+                <ContactForm addContact={addContact} />
               </Item>
-
             </Grid>
-            <Grid item2 xs={12} md={6} >
+            <Grid item xs={12} md={6}>
               <Item>
-                <Contact data={contacts} />
+                {contacts.map((contact) => (
+                  <Contact key={contact.phone} data={contact} />
+                ))}
               </Item>
             </Grid>
-
           </Grid>
         </Box>
-
       </Container>
-
     </div>
   );
 };
