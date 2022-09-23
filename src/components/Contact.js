@@ -14,38 +14,39 @@ import {
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
-    <>
-      <List sx={{ width: '100%', bgcolor: 'background.paper' }} aria-label="contacts">
-        {data.map((contact, key) => {
-          return (
-            <ListItem key={key}>
-              <ListItemButton>
-                <ListItemAvatar>
-                  <Avatar alt={contact.name} src={contact.photo} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={contact.name}
-                  secondary={
-                    <>
-                      <Typography
-                        sx={{ display: 'inline' }}
-                        component="span"
-                        variant="body2"
-                        color="text.primary"
-                      >
-                        {contact.phone}
-                        <br />
-                        {contact.email}
-                      </Typography>
-                    </>
-                  }
-                ></ListItemText>
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
-      </List>
-    </>
+    <div>
+      <div>
+        <List sx={{ width: '100%', bgcolor: 'background.paper' }} aria-label="contacts">
+          {data.map((value, key) => {
+            return (
+              <ListItem key={key}>
+                <ListItemButton>
+                  <ListItemAvatar>
+                    <Avatar alt={value.name} src={value.photo} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={value.name}
+                    secondary={
+                      <>
+                        <Typography
+                          sx={{ display: 'inline' }}
+                          component="span"
+                          variant="body2"
+                          color="text.primary"
+                        >
+                          {value.phone}<br></br>
+                          {value.email}
+                        </Typography>
+                      </>
+                    }
+                  ></ListItemText>
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
+      </div>
+    </div>
   );
 };
 

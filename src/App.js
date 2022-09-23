@@ -12,7 +12,7 @@ import contactsJSON from './data/contacts.json';
 const App = () => {
   const [contacts, setContacts] = useState(contactsJSON);
 
-  const addContactForm = (newContact) => {
+  const addContact = (newContact) => {
     setContacts([...contacts, newContact]);
   };
 
@@ -30,10 +30,10 @@ const App = () => {
       <Header />
       <Container>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
             <Grid item xs={12} md={6}>
               <Item>
-                <ContactForm fnAddContactForm={addContactForm} />
+                <ContactForm fnaddContact={addContact} />
               </Item>
             </Grid>
             <Grid item xs={12} md={6}>

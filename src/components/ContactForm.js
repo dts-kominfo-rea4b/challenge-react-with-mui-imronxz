@@ -30,7 +30,6 @@ const ContactForm = ({ fnAddContactForm }) => {
 
   const render_inputField = (placeholder, type, value, stateName) => (
     <TextField
-      required
       size="small"
       label={placeholder}
       type={type}
@@ -51,10 +50,13 @@ const ContactForm = ({ fnAddContactForm }) => {
         autoComplete="off"
         onSubmit={submitFormHandler}
       >
-        {render_inputField( 'Name', 'text', name, setName)}
-        {render_inputField( 'Phone', 'Number', phone, setPhone)}
-        {render_inputField( 'Email', 'text', email, setEmail)}
-        {render_inputField( 'Photo URL', 'text', photo, setPhoto)}
+        {render_inputField('Name', 'text', name, setName)}
+        {render_inputField('Phone', 'Number', phone, setPhone)}
+        <br />
+        {render_inputField('Email', 'email', email, setEmail)}
+        <br />
+        {render_inputField('Photo URL', 'text', photo, setPhoto)}
+        <br />
         <Button color="secondary" type="submit" variant="contained">
           Add New Contact
         </Button>
